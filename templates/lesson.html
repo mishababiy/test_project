@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>{{ lesson.headline }}</h1>
+<iframe src="http://www.youtube.com/embed/{{ lesson.source }}" frameborder="0" allowFullScreen=""  height="300" width="50%" ></iframe>
+<form method="post">{% csrf_token %}
+    {{ comment_form.as_p }}
+    <input  id="submit" class="btn" type="submit" value="Submit" />
+</form>
+
+{% if not comments %}
+    <div class="clearably" id="comments">
+        <p>Add your question</p>
+     </div>
+{% endif %}
+{% for comment in comments %}
+    <div id="comments">
+        <div class="hero-unit-comment">
+            <div class="comment">
+                {{ comment.text }}
+            </div>
+            <div class="comment-header">
+                {{ comment.student }} posted: {{ comment.created }}
+            </div>
+
+        </div>
+    </div>
+{% endfor %}
+{% load staticfiles %}
+<script src="{% static "bootstrap/js/jquery-1.8.2.js" %}"></script>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $("#submit").click(function() {
+    var question = $("#id_question").val();
+    $.ajax({
+    url : "/ajax_comment/{{ lesson.id }}",
+    type : "POST",
+    dataType: "json",
+    data : {
+    question : question,
+    csrfmiddlewaretoken: '{{ csrf_token }}'
+    },
+    success : function(json) {
+        $('#comments').before("<div id=\"comments\"><div class=\"hero-unit-comment\">" +
+        "<div class=\"comment\">"+json.comment+"</div>" +
+        "<div class=\"comment-header\">"+json.student+" posted: "+ "{% now "F j, Y, H:i a" %}"+ "</div></div></div>");
+        $('.clearably').remove();
+    },
+
+    });
+    return false;
+    });
+  });
+</script>
+{% endblock content %}

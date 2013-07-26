@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% load ulogin_tags %}
+<div class="conatiner_home">
+ {% if request.user.is_authenticated %}
+     {% for lesson in lessons %}
+        <div class="hero-unit">
+         <table>
+          <tr>
+              <td>
+                  <img src="http://img.youtube.com/vi/{{ lesson.source }}/default.jpg"/>
+              </td>
+              <td>
+                  <h3><a href="/view_lesson/{{ lesson.id }}">{{ lesson.headline }}</a></h3>
+              </td>
+          </tr>
+         </table>
+        </div>
+     {% endfor %}
+ {% endif %}
+
+{% if not request.user.is_authenticated %}
+    <h1>{{ lesson.headline }}</h1>
+    <iframe src="http://www.youtube.com/embed/{{ lesson.source }}" frameborder="0" allowFullScreen=""  height="300" width="50%" ></iframe>
+    <div class="signup">
+        <div>Sign up</div>
+          {% ulogin_widget %}
+    </div>
+{% endif %}
+</div>
+
+{% endblock content %}
