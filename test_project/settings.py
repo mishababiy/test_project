@@ -30,8 +30,14 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-MEDIA_ROOT = rel('media')
-MEDIA_URL = '/media/'
+#MEDIA_ROOT = rel('media')
+#MEDIA_URL = '/media/'
+MEDIA_ROOT = ''
+
+# URL that handles the media served from MEDIA_ROOT. Make sure to use a
+# trailing slash.
+# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_URL = ''
 
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
