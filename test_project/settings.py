@@ -1,9 +1,9 @@
 # coding: utf-8
 
-#import os
+import os
 
-#def rel(*x):
-#    return os.path.normpath(os.path.join(os.path.dirname(__file__), '..', *x))
+def rel(*x):
+    return os.path.normpath(os.path.join(os.path.dirname(__file__), '..', *x))
 
 
 DEBUG = True
@@ -66,7 +66,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
 #    'django.core.context_processors.static',
 )
 TEMPLATE_DIRS = (
-   # rel('templates'),
+    rel('templates'),
 )
 
 MIDDLEWARE_CLASSES = (
