@@ -1,9 +1,9 @@
 # coding: utf-8
 
-import os
+#import os
 
-def rel(*x):
-    return os.path.normpath(os.path.join(os.path.dirname(__file__), '..', *x))
+#def rel(*x):
+#    return os.path.normpath(os.path.join(os.path.dirname(__file__), '..', *x))
 
 
 DEBUG = True
@@ -16,7 +16,7 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = '*'
+
 
 TIME_ZONE = 'Europe/Helsinki'
 
@@ -58,13 +58,13 @@ TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
 )
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.request',
-    'django.core.context_processors.media',
-    'django.core.context_processors.static',
-)
+#TEMPLATE_CONTEXT_PROCESSORS = (
+#    'django.contrib.auth.context_processors.auth',
+#    'django.core.context_processors.i18n',
+#    'django.core.context_processors.request',
+#    'django.core.context_processors.media',
+#    'django.core.context_processors.static',
+#)
 TEMPLATE_DIRS = (
     rel('templates'),
 )
