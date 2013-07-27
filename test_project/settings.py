@@ -30,14 +30,9 @@ USE_I18N = True
 USE_L10N = True
 USE_TZ = True
 
-#MEDIA_ROOT = rel('media')
-#MEDIA_URL = '/media/'
-MEDIA_ROOT = ''
-
-# URL that handles the media served from MEDIA_ROOT. Make sure to use a
-# trailing slash.
-# Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
+MEDIA_ROOT = rel('media')
 MEDIA_URL = ''
+
 
 STATIC_ROOT = ''
 STATIC_URL = '/static/'
@@ -60,10 +55,10 @@ TEMPLATE_LOADERS = (
 )
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
-#    'django.core.context_processors.i18n',
-#    'django.core.context_processors.request',
-#    'django.core.context_processors.media',
-#    'django.core.context_processors.static',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
 )
 TEMPLATE_DIRS = (
     rel('templates'),
@@ -79,7 +74,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'test_project.urls'
 
-#WSGI_APPLICATION = 'test_project.wsgi.application'
+WSGI_APPLICATION = 'test_project.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
