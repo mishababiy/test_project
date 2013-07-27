@@ -79,7 +79,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'test_project.urls'
 
-WSGI_APPLICATION = 'test_project.wsgi.application'
+#WSGI_APPLICATION = 'test_project.wsgi.application'
 
 INSTALLED_APPS = (
     'django.contrib.auth',
@@ -89,6 +89,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.admin',
+    'django.contrib.admindocs',
     'django_ulogin',
     'customize',
     'test_project',
